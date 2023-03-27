@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {userLogin} from "../api/authenticationService";
+import { authenticate,authSuccess } from '../redux/authActions';
+import { connect } from 'react-redux';
 import {Box, Button, TextField, Typography} from "@mui/material";
-import {useDispatch} from "react-redux";
-import {authActions} from "../store";
 
-const Login = () => {
-    const dispatch = useDispatch();
+
+const Login = ({loading,error,...props}) => {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState({
@@ -19,14 +19,21 @@ const Login = () => {
             ...prev,
             [e.target.name]: e.target.value
         }))
-        console.log(e.target.name, "value", e.target.value);
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputs);
-        // send http request
+        props.authenticate();
 
-        userLogin(inputs).then(()=> dispatch(authActions.login())).then(()=> navigate("/user")).catch((err)=>{
+        userLogin(inputs).then((res)=>{
+
+            console.log("response",res);
+            if(res.status===200){
+                props.setUser(res.data);
+                navigate("/user");
+            }
+
+
+        }).catch((err)=>{
 
             console.log(err);
 
@@ -79,4 +86,20 @@ const Login = () => {
     );
 };
 
-export default Login;
+const mapStateToProps=({auth})=>{
+    console.log("state ",auth)
+    return {
+        loading:auth.loading,
+        error:auth.error
+    }}
+
+const mapDispatchToProps=(dispatch)=>{
+
+    return {
+        authenticate :()=> dispatch(authenticate()),
+        setUser:(data)=> dispatch(authSuccess(data)),
+    }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

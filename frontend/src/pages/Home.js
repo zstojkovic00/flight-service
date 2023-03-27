@@ -1,50 +1,52 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import {fetchUserData} from "../api/authenticationService";
+import {useNavigate} from "react-router-dom";
 
-axios.defaults.withCredentials = true;
 
 
-// let firstRender = true;
-const Home = () => {
-    const [user, setUser] = useState();
 
-    // const refreshToken = async () => {
-    //     const res = await axios.get("http://localhost:5000/api/v1/refresh", {
-    //         withCredentials: true
-    //     }).catch(err => console.log(err))
-    //
-    //     const data = await res.data;
-    //
-    //     return data;
-    // }
-    const sendRequest = async () => {
-        const res = await axios.get("http://localhost:5000/api/v1/user", {
-            withCredentials: true
-        }).catch(err => console.log(err));
-        const data = await res.data;
-        return data;
-    }
+const Home = (props) => {
 
+    const [data,setData]=useState();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
+
+
+    React.useEffect(()=>{
+        fetchUserData().then((response)=>{
+            setData(response.data?.data?.data); // access updatedUser instead of data.data
+            console.log(response.data?.data?.data);
+
+        }).catch(()=>{
+            localStorage.clear();
+            props.history.push('/');
+        })
+    },[])
 
     useEffect(() => {
-        // if (firstRender) {
-        //     firstRender = false
-        //     sendRequest().then((data) => setUser(data.user))
-        //
-        // }
-        // let interval = setInterval(()=> {
-        //   refreshToken().then(data=>setUser(data))
-        // }, 1000 * 290)
-        // return () => clearInterval(interval);
+        const token = localStorage.getItem('USER_KEY');
+        if (token) {
+            setIsLoggedIn(true);
+        }
 
-        sendRequest().then((data)=> setUser(data.user))
+    }, [setIsLoggedIn]);
 
-    }, [])
+
+    function refreshPage(){
+        window.location.reload();
+    }
+
+    const logout =() => {
+        localStorage.clear();
+        setIsLoggedIn(false);
+        navigate('/');
+    }
 
 
     return (
         <div>
-            {user && <h1> {user.name} </h1>}
+            <h1> {data?.name} </h1>
         </div>
     );
 };

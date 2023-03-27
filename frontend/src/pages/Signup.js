@@ -12,7 +12,8 @@ const Signup = () => {
     const [inputs, setInputs] = useState({
         name: "",
         email: "",
-        password: ""
+        password: "",
+        passwordConfirm: ""
     })
 
     const handleChange = (e) => {
@@ -20,7 +21,6 @@ const Signup = () => {
            ...prev,
             [e.target.name]: e.target.value
         }))
-    console.log(e.target.name, "value", e.target.value);
     }
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,9 +31,8 @@ const Signup = () => {
 
             console.log("response",res);
             if(res.status===201){
-                navigate("/login");
+                navigate("/user");
                 window.location.reload();
-                alert("Your account has been activated successfully. You can now login.")
             }
 
 
@@ -86,6 +85,16 @@ const Signup = () => {
                         value={inputs.password}
                         variant="outlined"
                         placeholder="Password"
+                        margin="normal"
+                    />
+
+                    <TextField
+                        name="passwordConfirm"
+                        onChange={handleChange}
+                        type={'password'}
+                        value={inputs.passwordConfirm}
+                        variant="outlined"
+                        placeholder="Confirm Password"
                         margin="normal"
                     />
 

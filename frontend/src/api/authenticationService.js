@@ -1,10 +1,14 @@
 import axios from 'axios';
-axios.defaults.withCredentials = true
+
+
+const getToken=()=>{
+    return localStorage.getItem('USER_KEY');
+}
 
 export const userJoin=(authRequest)=>{
     return axios({
         'method':'POST',
-        'url':"http://localhost:5000/api/v1/signup",
+        'url':"http://localhost:5000/api/v1/users/signup",
         'data':authRequest
     })
 }
@@ -14,18 +18,21 @@ export const userJoin=(authRequest)=>{
 export const userLogin=(authRequest)=>{
     return axios({
         'method':'POST',
-        'url':"http://localhost:5000/api/v1/login",
+        'url':"http://localhost:5000/api/v1/users/login",
         'data':authRequest
     })
 }
 
-export const userLogout=()=> {
+
+export const fetchUserData=()=>{
     return axios({
-        'method':'POST',
-        'url':"http://localhost:5000/api/v1/logout",
-        'data': null,
-        withCredentials: true
+        method:'GET',
+        url:"http://localhost:5000/api/v1/users/me",
+        headers:{
+            'Authorization':'Bearer '+getToken()
+        }
     })
 }
+
 
 
