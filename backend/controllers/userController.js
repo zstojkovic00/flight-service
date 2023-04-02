@@ -4,6 +4,8 @@ const AppError = require('../util/appError');
 const catchAsync = require('../util/catchAsync');
 const factory = require('./handlerFactory');
 const multer = require('multer');
+const Flight = require('../models/flightModel');
+const Booking = require('../models/bookingModel')
 
 
 
@@ -87,6 +89,16 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
         data: null
     });
 });
+
+
+exports.getMyTours = catchAsync(async(req,res,next) => {
+    const bookings = await Booking.find({ user: req.user.id } )
+
+    const flightIds = bookings.map(el => el.flight)
+    const flight = await Flight.find({ _id: {$in: tourIDs}});
+
+
+})
 
 
 exports.getAllUsers = factory.getAll(User);

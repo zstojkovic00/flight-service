@@ -44,4 +44,15 @@ export const searchForFlight = (flightRequest) => {
 }
 
 
+export const bookingFlight = (flightId) => {
+    return axios({
+        method: 'GET',
+        url:`http://localhost:5000/api/v1/bookings/checkout-session/${flightId}`,
+        headers:{
+            'Authorization':'Bearer '+getToken()
+        }
+    })
+}
+
+
 

@@ -6,7 +6,7 @@ import {
     Box,
     Typography,
 } from "@mui/material";
-import { searchForFlight } from "../api/authenticationService";
+import {bookingFlight, searchForFlight,} from "../api/authenticationService";
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 const FlightSearchForm = () => {
@@ -35,12 +35,32 @@ const FlightSearchForm = () => {
                 console.log("response", res);
                 if (res.status === 200) {
                     setFlights(res.data);
-                    console.log(res);
+                    console.log(res.data);
                 }
             })
             .catch((err) => {
                 console.log(err);
             });
+    };
+
+
+
+
+    const bookFlight = async (flightId) => {
+        bookingFlight(flightId)
+            .then((res) => {
+                console.log("response", res);
+                if (res.status === 200) {
+                    window.location.href = res.data.session.url;
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const handleBookFlight = (flightId) => {
+        bookFlight(flightId);
     };
 
     return (
@@ -91,7 +111,7 @@ const FlightSearchForm = () => {
             </form>
 
             <Box sx={{ mt: 5 }}>
-                {flights.map((flight) => (
+                {flights.map((flight,key) => (
                     <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", p: 3, mb: 5, boxShadow: 7 }}>
                         <Box sx={{ display: "flex", alignItems: "center" }}>
                             <FlightTakeoffIcon />
@@ -119,7 +139,7 @@ const FlightSearchForm = () => {
                                 {flight.price}$
                             </Typography>
                         </Box>
-                        <Button  variant="contained" color="primary" type="submit" >
+                        <Button onClick={() => handleBookFlight(flight._id)} variant="contained" color="primary" type="submit" >
                             Book Now!
                         </Button>
                     </Box>
