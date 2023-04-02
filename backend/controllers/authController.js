@@ -47,7 +47,6 @@ exports.signup = catchAsync(async (req,res, next)=>{
         role: req.body.role,
 
     });
-    const url = `${req.protocol}://${req.get('host')}/me`;
     createSendToken(newUser,201,res);
 
 });
@@ -130,7 +129,6 @@ exports.protect = catchAsync(async (req, res, next) => {
 
 
 
-// Only for rendered pages, no errors!
 exports.isLoggedIn = async (req, res, next) => {
     if (req.cookies.jwt) {
         try {
@@ -164,7 +162,6 @@ exports.isLoggedIn = async (req, res, next) => {
 
 exports.restrictTo = (... roles) => {
     return (req, res, next) => {
-        // roles ['admin','lead-guide']. role = 'user'
         if (!roles.includes(req.user.role)) {
             return next(new AppError('You do not have premission to perform this action', 403))
         }
