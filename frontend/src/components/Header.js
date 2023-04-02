@@ -5,7 +5,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import {fetchUserData} from '../api/authenticationService'
 
 const Header = () => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const navigate = useNavigate();

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 const User = require('../../models/userModel');
+const Flight = require('../../models/flightModel')
 
 dotenv.config({ path: './config.env' });
 
@@ -22,12 +23,15 @@ mongoose
 
 // READ JSON FILE
 const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
+const flights = JSON.parse(fs.readFileSync(`${__dirname}/flights.json`, 'utf-8'));
+
 
 
 // IMPORT DATA INTO DB
 const importData = async () => {
     try {
         await User.create(users, { validateBeforeSave: false });
+        await Flight.create(flights);
         console.log('Data successfully loaded!');
     } catch (err) {
         console.log(err);
@@ -39,6 +43,7 @@ const importData = async () => {
 const deleteData = async () => {
     try {
         await User.deleteMany();
+        await Flight.deleteMany();
         console.log('Data successfully deleted!');
     } catch (err) {
         console.log(err);
