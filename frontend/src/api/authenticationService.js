@@ -35,4 +35,13 @@ export const fetchUserData=()=>{
 }
 
 
+export const searchForFlight = (flightRequest) => {
+    return axios({
+        method: 'POST',
+        url:"http://localhost:5000/api/v1/flights/search",
+        'data': flightRequest
+    })
+}
+
+
 
