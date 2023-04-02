@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import {Box, Button, TextField, Typography} from "@mui/material";
 import {userJoin} from "../api/authenticationService";
 import { useNavigate} from "react-router-dom";
+import { authenticate, authSuccess} from "../redux/authActions";
+import { connect } from "react-redux";
 
 
-
-const Signup = () => {
+const Signup = ({ loading, error,handleLoginSuccess, ...props }, {}) => {
 
     const navigate = useNavigate();
 
@@ -31,7 +32,8 @@ const Signup = () => {
 
             console.log("response",res);
             if(res.status===201){
-                navigate("/user");
+                props.setUser(res.data);
+                navigate("/");
                 window.location.reload();
             }
 
@@ -106,5 +108,18 @@ const Signup = () => {
         </div>
     );
 };
+const mapStateToProps = ({ auth }) => {
+    console.log("state ", auth);
+    return {
+        loading: auth.loading,
+        error: auth.error,
+    };
+};
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        authenticate: () => dispatch(authenticate()),
+        setUser: (data) => dispatch(authSuccess(data)),
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

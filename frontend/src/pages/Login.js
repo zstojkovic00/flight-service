@@ -29,7 +29,7 @@ const Login = ({ loading, error,handleLoginSuccess, ...props }, {}) => {
             if (res.status === 200) {
                 props.setUser(res.data);
                 handleLoginSuccess();
-                navigate("/user");
+                navigate("/");
                 window.location.reload();
 
             }

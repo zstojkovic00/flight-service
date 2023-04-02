@@ -15,24 +15,23 @@ const Home = (props) => {
 
 
 
-    React.useEffect(()=>{
-        fetchUserData().then((response)=>{
-            setData(response.data?.data?.data); // access updatedUser instead of data.data
-            console.log(response.data?.data?.data);
-
-        }).catch(()=>{
-            localStorage.clear();
-            props.history.push('/');
-        })
-    },[])
-
     useEffect(() => {
         const token = localStorage.getItem('USER_KEY');
         if (token) {
             setIsLoggedIn(true);
+            fetchUserData()
+                .then((response) => {
+                    setData(response.data?.data?.data); // access updatedUser instead of data.data
+                })
+                .catch(() => {
+                    localStorage.clear();
+                    navigate('/');
+                });
+        } else {
+            setIsLoggedIn(false);
+            setData(null);
         }
-
-    }, [setIsLoggedIn]);
+    }, [navigate]);
 
 
     function refreshPage(){

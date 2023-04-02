@@ -29,7 +29,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login handleLoginSuccess={handleLoginSuccess} />} />
             <Route path="/signup" handleLoginSuccess={handleLoginSuccess} element={<Signup />} />
-            <Route path="/user" element={<Home />} />
+            <Route path="/" element={<Home />} />
           </Routes>
 
         </main>
