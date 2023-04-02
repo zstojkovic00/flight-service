@@ -91,14 +91,20 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 });
 
 
-exports.getMyTours = catchAsync(async(req,res,next) => {
+exports.getMyFlights = catchAsync(async(req,res,next) => {
     const bookings = await Booking.find({ user: req.user.id } )
+    console.log(req.user.id);
 
     const flightIds = bookings.map(el => el.flight)
-    const flight = await Flight.find({ _id: {$in: tourIDs}});
+    const flights = await Flight.find({ _id: {$in: flightIds}});
 
 
+    res.status(200).json({
+        status: 'success',
+        flights: flights
+    });
 })
+
 
 
 exports.getAllUsers = factory.getAll(User);

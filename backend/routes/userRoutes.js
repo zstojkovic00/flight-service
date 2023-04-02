@@ -17,6 +17,7 @@ router.use(authController.protect);
 router.patch('/updateMe',userController.uploadUserPhoto,userController.resizeUserPhoto,userController.updateMe);
 router.delete('/deleteMe',userController.deleteMe);
 router.get('/me',userController.getMe, userController.getUser);
+router.get('/my-flights',  userController.getMyFlights)
 
 
 

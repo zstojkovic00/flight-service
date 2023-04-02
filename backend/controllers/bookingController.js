@@ -52,7 +52,7 @@ exports.createBookingCheckout = catchAsync(async (req, res, next) => {
     if (!flight || !user || !price) { return next(); }
     await Booking.create({ flight, user, price });
 
-    res.redirect(`${req.protocol}://${req.get('host')}/my-flights`);
+    res.redirect(`${req.protocol}://${req.hostname}:3000/my-flights`);
 });
 
 

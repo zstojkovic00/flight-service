@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {fetchUserData} from "../api/authenticationService";
+import {fetchUserData} from "../api/apiService";
 import {useNavigate} from "react-router-dom";
 import FlightSearchForm from "../components/FlightSearchForm";
 import {Grid} from '@mui/material';

@@ -54,5 +54,15 @@ export const bookingFlight = (flightId) => {
     })
 }
 
+export const myFlights = () => {
+    return axios({
+        method: 'GET',
+        url:`http://localhost:5000/api/v1/users/my-flights`,
+        headers:{
+            'Authorization':'Bearer '+getToken()
+        }
+    })
+}
+
 
 

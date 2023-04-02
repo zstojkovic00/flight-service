@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Box, Button, TextField, Typography} from "@mui/material";
-import {userJoin} from "../api/authenticationService";
+import {userJoin} from "../api/apiService";
 import { useNavigate} from "react-router-dom";
 import { authenticate, authSuccess} from "../redux/authActions";
 import { connect } from "react-redux";

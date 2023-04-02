@@ -6,7 +6,7 @@ import {
     Box,
     Typography,
 } from "@mui/material";
-import {bookingFlight, searchForFlight,} from "../api/authenticationService";
+import {bookingFlight, searchForFlight,} from "../api/apiService";
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 const FlightSearchForm = () => {
