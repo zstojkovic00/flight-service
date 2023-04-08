@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import MyFlights from "./pages/myFlights";
+import Dashboard from "./pages/Dashboard"
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/signup" handleLoginSuccess={handleLoginSuccess} element={<Signup />} />
             <Route path="/" element={<Home />} />
             <Route path="/my-flights" element={<MyFlights />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
 
         </main>

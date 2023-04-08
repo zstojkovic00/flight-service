@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { myFlights } from "../api/apiService";
+import {useState, useEffect} from "react";
+import {myFlights} from "../api/apiService";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
-import { Box, Typography } from "@mui/material";
+import {Box, Typography} from "@mui/material";
 
 const MyFlights = () => {
     const [flights, setFlights] = useState([]);
@@ -16,7 +16,7 @@ const MyFlights = () => {
     }, []);
 
     return (
-        <Box sx={{ mt: 5 }}>
+        <Box sx={{mt: 5}}>
             {loading ? (
                 <Typography>Loading...</Typography>
             ) : (
@@ -32,12 +32,13 @@ const MyFlights = () => {
                                     p: 3,
                                     mb: 5,
                                     boxShadow: 7,
-                                    position: "relative", // add this to make the position relative
+                                    position: "relative",
+                                    maxWidth: "70%", mx: "auto"
                                 }}
                             >
-                                <Box sx={{ display: "flex", alignItems: "center" }}>
-                                    <FlightTakeoffIcon />
-                                    <Box sx={{ ml: 2 }}>
+                                <Box sx={{display: "flex", alignItems: "center"}}>
+                                    <FlightTakeoffIcon/>
+                                    <Box sx={{ml: 2}}>
                                         <Typography variant="h5" gutterBottom>
                                             {flight.from}{" "}
                                             <Typography
@@ -72,7 +73,12 @@ const MyFlights = () => {
                             </Box>
                         ))
                     ) : (
-                        <Typography>No flights found</Typography>
+                        <Typography sx={{
+                            fontSize: '1.5rem',
+                            fontWeight: 'bold',
+                            marginBottom: '1rem',
+                            textAlign: 'center',
+                        }}>No flights found</Typography>
                     )}
                 </>
             )}
