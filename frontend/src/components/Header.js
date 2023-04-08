@@ -47,7 +47,7 @@ const Header = () => {
                             textDecoration: 'none',
                             color: 'white'
                         }}
-                        activeStyle={{
+                        activestyle={{
                             color: 'white'
                         }}
                     >

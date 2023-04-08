@@ -14,6 +14,7 @@ const Home = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('USER_KEY');
+
         if (token) {
             setIsLoggedIn(true);
             fetchUserData()
