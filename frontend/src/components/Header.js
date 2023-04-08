@@ -64,7 +64,7 @@ const Header = () => {
                                         <Tab
                                             key="avatar"
                                             icon={<Avatar alt={name} src={name}/>}
-                                            to="/"
+                                            to="/my-account"
                                             component={Link}
                                         />]
                                 ) : (

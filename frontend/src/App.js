@@ -6,7 +6,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import MyFlights from "./pages/myFlights";
-import Dashboard from "./pages/Dashboard"
+import Dashboard from "./pages/Dashboard";
+import Account from "./pages/Account";
 
 function App() {
 
@@ -32,6 +33,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/my-flights" element={<MyFlights />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/my-account" element={<Account />} />
+
+
           </Routes>
 
         </main>

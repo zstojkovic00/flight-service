@@ -88,4 +88,27 @@ export const deleteUser = (userId) => {
 }
 
 
+export const currentUser = () => {
+    return  axios({
+        'method': 'GET',
+        'url': "http://localhost:5000/api/v1/users/me",
+        headers:{
+            'Authorization':'Bearer '+getToken()
+        }
+    })
+}
+
+
+export const updateCurrentUser = (updateRequest) => {
+    return  axios({
+        'method': 'PATCH',
+        'url': "http://localhost:5000/api/v1/users/updateMe",
+        'data':updateRequest,
+        headers:{
+            'Authorization':'Bearer '+getToken()
+        }
+    })
+}
+
+
 
