@@ -7,8 +7,8 @@ import {
     CircularProgress,
     styled,
 } from '@mui/material';
-import axios from 'axios';
-import {currentUser, updateCurrentUser, userLogin} from "../api/apiService";
+
+import {currentUser, updateCurrentUser} from "../api/apiService";
 
 const RootContainer = styled(Container)({
     marginTop: '64px',
@@ -37,6 +37,7 @@ const AccountDetails = () => {
     const [inputs, setInputs] = useState({
         name: "",
         email: "",
+        photo: "",
 
     })
     const [loading, setLoading] = useState(false);
@@ -57,7 +58,6 @@ const AccountDetails = () => {
             ...prev,
             [e.target.name]: e.target.value
         }))
-        console.log(inputs);
     }
 
     const handlePhotoChange = (e) => {
@@ -74,9 +74,10 @@ const AccountDetails = () => {
         setLoading(true);
 
         updateCurrentUser(inputs).then((res) => {
-            console.log("response", res);
             if (res.status === 200) {
                 setUser(res.data);
+                window.location.reload();
+
             }
         }).catch((err) => {
             console.log(err);
@@ -92,12 +93,20 @@ const AccountDetails = () => {
     return (
         <RootContainer maxWidth="xs">
             <label htmlFor="photo-input">
-                <AvatarImage
-                    src={user.photo}
+                <Avatar
+                    sx={{ width: '120px', height: '120px', marginBottom: '16px' }}
+                    src={`http://localhost:5000/img/users/${user?.data?.data?.photo}`}
                     alt={user.name}
-                    onClick={() => document.getElementById('photo-input').click()}
                 />
             </label>
+            <input
+                type="file"
+                id="photo-input"
+                name="photo"
+                accept="image/*"
+                onChange={handlePhotoChange}
+                style={{ display: 'none' }}
+            />
             <Form onSubmit={handleSubmit}>
                 <TextField
                     variant="outlined"
@@ -105,10 +114,9 @@ const AccountDetails = () => {
                     required
                     fullWidth
                     id="name"
-                    // label={user.data.data.name}
                     name="name"
-                    value={inputs.name || user.name}
-                    placeholder={user.data.data.name}
+                    value={inputs.name || ''}
+                    placeholder={user?.data?.data?.name || ''}
                     onChange={handleChange}
                 />
                 <TextField
@@ -118,9 +126,9 @@ const AccountDetails = () => {
                     fullWidth
                     id="email"
                     name="email"
-                    value={inputs.email}
+                    value={inputs.email || ''}
+                    placeholder={user?.data?.data?.email || ''}
                     onChange={handleChange}
-                    placeholder={user.data.data.email}
                 />
 
                 <SubmitButton

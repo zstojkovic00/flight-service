@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
     TextField,
     Button,
@@ -6,7 +6,7 @@ import {
     Box,
     Typography,
 } from "@mui/material";
-import {bookingFlight, searchForFlight,} from "../api/apiService";
+import {bookingFlight, searchForFlight,getCities} from "../api/apiService";
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 const FlightSearchForm = () => {
@@ -17,6 +17,22 @@ const FlightSearchForm = () => {
 
     const [date, setDate] = useState("");
     const [flights, setFlights] = useState([]);
+    const [cities, setCities] = useState([]);
+
+
+    useEffect(() => {
+        getCities()
+            .then((res) => {
+                console.log("response", res);
+                if (res.status === 200) {
+                    setCities(res?.data?.data);
+                    console.log(cities);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     const handleChange = (e) => {
         setInputs(prev => ({
@@ -123,22 +139,30 @@ const FlightSearchForm = () => {
                                         component="span"
                                         color="text.secondary"
                                     >
-                                        {new Date(flight.date).toLocaleDateString()}
                                     </Typography>
                                 </Typography>
                                 <Typography variant="h5" gutterBottom>
                                     {flight.to}
                                 </Typography>
                             </Box>
+
                         </Box>
+
+                        <Typography variant="h5">
+                            {new Date(flight.date).toLocaleDateString()}
+                        </Typography>
+
                         <Box sx={{ display: "flex", alignItems: "center", flexDirection: "column"  }}>
-                            <Typography variant="h6" gutterBottom>
-                                {flight.airlines}
+                            <Typography variant="h5" gutterBottom>
+                                {flight.departureTime}
                             </Typography>
+                            <Typography variant="h5" gutterBottom>
+                                {flight.arrivalTime}
+                            </Typography>
+                        </Box>
                             <Typography variant="h5" gutterBottom>
                                 {flight.price}$
                             </Typography>
-                        </Box>
                         <Button onClick={() => handleBookFlight(flight._id)} variant="contained" color="primary" type="submit" >
                             Book Now!
                         </Button>

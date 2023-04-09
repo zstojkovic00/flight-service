@@ -1,23 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { allUsers, deleteUser } from '../api/apiService';
-import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Tab, Typography } from '@mui/material';
+import React, {useEffect, useState} from 'react';
+import {allUsers, currentUser, deleteUser} from '../api/apiService';
+import {
+    Avatar,
+    Box,
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Typography
+} from '@mui/material';
 
 const Dashboard = () => {
     const [users, setUsers] = useState([]);
+    const [user, setUser] = useState([]);
     const [loading, setLoading] = useState(true);
     const [dialogOpen, setDialogOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+
+
+
+    useEffect(() => {
+        currentUser().then((res) => {
+            setUser(res?.data?.data?.data);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }, []);
+
+
 
     useEffect(() => {
         allUsers()
             .then((res) => {
                 setUsers(res?.data?.data.data);
-                console.log(res?.data?.data.data);
             })
             .finally(() => setLoading(false));
     }, []);
 
     const handleRemoveUser = (userId) => {
+
+        if (userId === user._id) {
+            alert("You can't delete yourself.");
+            return;
+        }
+
         setSelectedUser(userId);
         setDialogOpen(true);
     };
@@ -25,7 +53,6 @@ const Dashboard = () => {
     const confirmRemoveUser = () => {
         deleteUser(selectedUser)
             .then((res) => {
-                console.log(res);
                 // update the users list
                 setUsers(users.filter(user => user._id !== selectedUser));
                 setSelectedUser(null);
@@ -42,7 +69,7 @@ const Dashboard = () => {
     };
 
     return (
-        <Box sx={{ mt: 5 }}>
+        <Box sx={{mt: 5}}>
             {loading ? (
                 <Typography>Loading...</Typography>
             ) : (
@@ -62,12 +89,11 @@ const Dashboard = () => {
                                     maxWidth: "70%", mx: "auto"
                                 }}
                             >
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <Tab
-                                        key="avatar"
-                                        icon={<Avatar alt={user.name} src={user.name} sx={{ width: 50, height: 50 }} />}
-                                    />
-                                    <Box sx={{ ml: 2 }}>
+                                <Box sx={{display: 'flex', alignItems: 'center'}}>
+                                    <Avatar src={`http://localhost:5000/img/users/${user?.photo}`}
+                                            alt={user.name} sx={{width: 50, height: 50}}/>
+
+                                    <Box sx={{ml: 2}}>
                                         <Typography variant="h5" gutterBottom>
                                             {user.name}{' '}
                                             <Typography

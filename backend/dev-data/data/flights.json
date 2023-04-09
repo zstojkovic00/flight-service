@@ -1,114 +1,82 @@
 [
   {
-    "airlines": "Serbia Airlines",
-    "name": "SA001",
+    "airlines": "Airline Serbia",
+    "name": "AS001",
     "from": "Belgrade",
-    "to": "New York",
-    "date": "2023-05-15",
-    "price": 850.00
+    "to": "Paris",
+    "date": "2023-05-01T08:00:00.000Z",
+    "class": "Economy",
+    "departureTime": "08:00 AM",
+    "arrivalTime": "11:00 AM",
+    "price": 300
   },
   {
-    "airlines": "Serbia Airlines",
-    "name": "SA002",
-    "from": "Paris",
-    "to": "Belgrade",
-    "date": "2023-06-20",
-    "price": 320.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA003",
-    "from": "Belgrade",
-    "to": "Amsterdam",
-    "date": "2023-07-05",
-    "price": 240.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA004",
-    "from": "Belgrade",
-    "to": "Zurich",
-    "date": "2023-08-10",
-    "price": 180.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA005",
-    "from": "Istanbul",
-    "to": "Belgrade",
-    "date": "2023-09-25",
-    "price": 140.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA006",
-    "from": "Belgrade",
-    "to": "Dubai",
-    "date": "2023-10-08",
-    "price": 890.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA007",
-    "from": "Belgrade",
-    "to": "Moscow",
-    "date": "2023-11-15",
-    "price": 430.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA008",
-    "from": "Rome",
-    "to": "Belgrade",
-    "date": "2023-12-20",
-    "price": 270.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA009",
-    "from": "Belgrade",
-    "to": "Vienna",
-    "date": "2024-01-05",
-    "price": 120.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA010",
-    "from": "Belgrade",
-    "to": "Stockholm",
-    "date": "2024-02-10",
-    "price": 330.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA011",
-    "from": "Madrid",
-    "to": "Belgrade",
-    "date": "2024-03-15",
-    "price": 390.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA012",
+    "airlines": "Airline Serbia",
+    "name": "AS002",
     "from": "Belgrade",
     "to": "London",
-    "date": "2024-04-20",
-    "price": 280.00
+    "date": "2023-05-02T10:00:00.000Z",
+    "class": "First Class",
+    "departureTime": "10:00 AM",
+    "arrivalTime": "02:00 PM",
+    "price": 900
   },
   {
-    "airlines": "Serbia Airlines",
-    "name": "SA013",
-    "from": "Berlin",
-    "to": "Belgrade",
-    "date": "2024-05-25",
-    "price": 190.00
-  },
-  {
-    "airlines": "Serbia Airlines",
-    "name": "SA014",
+    "airlines": "Airline Serbia",
+    "name": "AS003",
     "from": "Belgrade",
-    "to": "Brussels",
-    "date": "2024-06-30",
-    "price": 220.00
+    "to": "Dubai",
+    "date": "2023-05-03T14:00:00.000Z",
+    "class": "Business",
+    "departureTime": "02:00 PM",
+    "arrivalTime": "11:00 PM",
+    "price": 2300
+  },
+  {
+    "airlines": "Airline Serbia",
+    "name": "AS004",
+    "from": "Belgrade",
+    "to": "Moscow",
+    "date": "2023-05-04T16:00:00.000Z",
+    "class": "Economy",
+    "departureTime": "04:00 PM",
+    "arrivalTime": "06:00 PM",
+    "price": 250
+  },
+  {
+    "airlines": "Airline Serbia",
+    "name": "AS005",
+    "from": "Belgrade",
+    "to": "New York",
+    "date": "2023-05-05T12:00:00.000Z",
+    "class": "First Class",
+    "departureTime": "12:00 PM",
+    "arrivalTime": "06:00 PM",
+    "price": 1300
+  },
+  {
+    "airlines": "Airline Serbia",
+    "name": "AS006",
+    "from": "Belgrade",
+    "to": "Vienna",
+    "date": "2023-05-06T08:00:00.000Z",
+    "class": "Economy",
+    "departureTime": "08:00 AM",
+    "arrivalTime": "09:00 AM",
+    "price": 150
+  },
+  {
+    "airlines": "Airline Serbia",
+    "name": "AS007",
+    "from": "Belgrade",
+    "to": "Barcelona",
+    "date": "2023-05-07T10:00:00.000Z",
+    "class": "Business",
+    "departureTime": "10:00 AM",
+    "arrivalTime": "01:00 PM",
+    "price": 1900
   }
-]
+
+
+
+  ]

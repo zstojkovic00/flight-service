@@ -22,11 +22,28 @@ const flightSchema = new Schema({
         type: Date,
         required: true,
     },
+    class: {
+        enum: ['First Class','Economy', 'Business']
+    },
+    departureTime: String,
+    arrivalTime: String,
     price: {
         type: Number,
         required: true,
     },
 });
+
+
+
+flightSchema.pre('save', function (next) {
+    if (this.class === 'Business') {
+        this.price *= 1.3;
+    } else if(this.class === 'First Class'){
+        this.price *=1.5;
+    }
+    next();
+});
+
 
 const Flight = mongoose.model('Flight', flightSchema);
 

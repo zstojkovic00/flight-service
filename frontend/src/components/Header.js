@@ -63,20 +63,21 @@ const Header = () => {
                                         <Tab key="logout" to="/" onClick={handleLogout} label="Logout"/>,
                                         <Tab
                                             key="avatar"
-                                            icon={<Avatar alt={name} src={name}/>}
+                                            icon={  <Avatar src={`http://localhost:5000/img/users/${userData?.photo}`}
+                                                            alt={userData.name} />}
                                             to="/my-account"
                                             component={Link}
                                         />]
                                 ) : (
                                     [
-                                        <Tab key="logout" to="/" onClick={handleLogout} label="Logout"/>,
                                         <Tab key="my-fligts" to="/my-flights" component={Link} label="My Flights"/>,
+                                        <Tab key="logout" to="/" onClick={handleLogout} label="Logout"/>,
                                         <Tab
                                             key="avatar"
-                                            icon={<Avatar alt={name} src={name}/>}
-                                            to="/"
+                                            icon={  <Avatar src={`http://localhost:5000/img/users/${userData?.photo}`}
+                                                            alt={userData.name} />}
+                                            to="/my-account"
                                             component={Link}
-
                                         />
                                     ]
                                 )

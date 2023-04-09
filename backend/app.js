@@ -9,7 +9,7 @@ const path = require("path");
 const bookingController = require("./controllers/bookingController");
 
 app.get('/', bookingController.createBookingCheckout);
-app.use('/img', express.static(path.join(__dirname, 'public/img')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({credentials: true, origin:"http://localhost:3000"}))
 app.use(cookieParser());
 app.use(express.json());

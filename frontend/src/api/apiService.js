@@ -36,6 +36,14 @@ export const fetchUserData=()=>{
     })
 }
 
+export const getCities = () => {
+    return axios({
+        method: 'GET',
+        url:"http://localhost:5000/api/v1/flights",
+
+    })
+}
+
 
 export const searchForFlight = (flightRequest) => {
     return axios({
@@ -100,12 +108,17 @@ export const currentUser = () => {
 
 
 export const updateCurrentUser = (updateRequest) => {
+    const formData = new FormData();
+    for (const key in updateRequest) {
+        formData.append(key, updateRequest[key]);
+    }
     return  axios({
         'method': 'PATCH',
         'url': "http://localhost:5000/api/v1/users/updateMe",
-        'data':updateRequest,
+        'data': formData,
         headers:{
-            'Authorization':'Bearer '+getToken()
+            'Authorization': 'Bearer ' + getToken(),
+            'Content-Type': 'multipart/form-data'
         }
     })
 }
