@@ -5,6 +5,8 @@ import {
     Grid,
     Box,
     Typography,
+    Select,
+    MenuItem,
 } from "@mui/material";
 import {bookingFlight, searchForFlight,getCities} from "../api/apiService";
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
@@ -25,7 +27,7 @@ const FlightSearchForm = () => {
             .then((res) => {
                 console.log("response", res);
                 if (res.status === 200) {
-                    setCities(res?.data?.data);
+                    setCities(res?.data?.data?.data);
                     console.log(cities);
                 }
             })
@@ -95,15 +97,18 @@ const FlightSearchForm = () => {
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                        <TextField
+                        <Select
                             name="to"
-                            type="to"
                             value={inputs.to}
                             onChange={handleChange}
                             label="To"
                             variant="outlined"
                             fullWidth
-                        />
+                        >
+                            {cities.map((city) => (
+                                <MenuItem value={city.to}>{city.to}</MenuItem>
+                            ))}
+                        </Select>
                     </Grid>
                     <Grid item xs={12} sm={100}>
                         <TextField
