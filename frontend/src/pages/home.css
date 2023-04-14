@@ -1,4 +1,13 @@
 .flightNaslov{
     text-align: center;
-    margin-top: 5%;
+    line-height: 67px;
+    font-size: 56px;
+    color: black;
+    font-weight: 700;
+
 }
+
+.flightElement{
+    margin-top: 2%;
+}
+

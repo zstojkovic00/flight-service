@@ -3,9 +3,10 @@ import {AppBar, Toolbar, Typography, Box, Avatar} from '@mui/material';
 import {Tab, Tabs} from '@mui/material';
 import {Link, useNavigate} from 'react-router-dom';
 import {fetchUserData} from '../api/apiService'
+import Cloud from "../cloud.png"
 
 const Header = () => {
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const navigate = useNavigate();
@@ -42,16 +43,11 @@ const Header = () => {
                     <Typography
                         to="/"
                         component={Link}
-                        variant="h3"
-                        sx={{
-                            textDecoration: 'none',
-                            color: 'white'
-                        }}
-                        activestyle={{
-                            color: 'white'
-                        }}
                     >
-                        Iza Oblaka
+                        <img src={Cloud} alt="Cloud" style={{
+                            width: '70px',
+                            height: '70px',
+                        }} />
                     </Typography>
                     <Box sx={{marginLeft: 'auto'}}>
                         <Tabs value={value} onChange={(e, val) => setValue(val)} textColor="inherit">
