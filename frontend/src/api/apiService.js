@@ -124,4 +124,18 @@ export const updateCurrentUser = (updateRequest) => {
 }
 
 
+export const getAllCities = () => {
+    return  axios({
+        'method': 'GET',
+        'url': "http://localhost:5000/api/v1/cities",
+    })
+}
+
+export const getFlightBySlug = (slug) => {
+    return axios({
+        'method': 'GET',
+        'url': `http://localhost:5000/api/v1/flights/destination/${slug}`
+    })
+}
+
 

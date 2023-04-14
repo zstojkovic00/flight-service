@@ -9,5 +9,21 @@
 
 .flightElement{
     margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.flightPodNaslov{
+    margin-left: 0.5%;
+    line-height: 67px;
+    font-size: 40px;
+    color: black;
+    font-weight: 700;
+}
+
+.flightH2{
+    margin-left: 0.5%;
+    font-weight: 500;
+    line-height: 1.3;
+    font-size: 16px;
 }
 

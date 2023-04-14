@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import MyFlights from "./pages/myFlights";
 import Dashboard from "./pages/Dashboard";
 import Account from "./pages/Account";
+import CityPage from "./pages/CityPage";
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
             <Route path="/my-flights" element={<MyFlights />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/my-account" element={<Account />} />
+            <Route path="/city/:cityName" element={<CityPage />} />
+
 
 
           </Routes>

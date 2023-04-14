@@ -6,7 +6,7 @@ import {fetchUserData} from '../api/apiService'
 import Cloud from "../cloud.png"
 
 const Header = () => {
-    const [value, setValue] = useState();
+    const [value, setValue] = useState(1);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const navigate = useNavigate();

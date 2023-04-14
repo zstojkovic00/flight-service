@@ -20,5 +20,18 @@ exports.searchFlight = catchAsync (async(req,res,next)=> {
         .catch((err) => res.status(500).json("Error: " + err));
 });
 
+exports.belgradeSearchFlight = async (req, res, next) => {
+    const { destination } = req.params;
+    try {
+        const regex = new RegExp(destination, 'i'); // i flag makes it case-insensitive
+        const flights = await Flight.find({ from: 'Belgrade', to: regex }).exec();
+        res.json(flights);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
+
 
 

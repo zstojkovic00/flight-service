@@ -1,0 +1,109 @@
+[
+  {
+    "name": "New York",
+    "photo": "https://cdn.wallpapersafari.com/10/91/qMIhn0.jpg",
+    "country": "United States",
+    "population": 8336817
+  },
+  {
+    "name": "London",
+    "photo": "https://www.thetrainline.com/cms/media/1376/uk-london-tower-bridge-river-thames.jpg?mode=crop&width=1080&height=1080&quality=70",
+    "country": "United Kingdom",
+    "population": 9304016
+  },
+  {
+    "name": "Tokyo",
+    "photo": "https://lp-cms-production.imgix.net/2021-02/Tokyo%20Main.jpg",
+    "country": "Japan",
+    "population": 13929286
+  },
+  {
+    "name": "Paris",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+    "country": "France",
+    "population": 2148271
+  },
+  {
+    "name": "Los Angeles",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/32/20190616154621%21Echo_Park_Lake_with_Downtown_Los_Angeles_Skyline.jpg",
+    "country": "United States",
+    "population": 3977683
+  },
+
+  {
+    "name": "Sydney",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg",
+    "country": "Australia",
+    "population": 5312435
+  },
+  {
+    "name": "Hong Kong",
+    "photo": "https://www.investopedia.com/thmb/zAXvQI32A9xWsaS1v4TEk-6ruNs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1338478806-5117c535082d4221b24c70c50638958a.jpg",
+    "country": "China",
+    "population": 7324300
+  },
+
+  {
+    "name": "Rio de Janeiro",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cidade_Maravilhosa.jpg/1200px-Cidade_Maravilhosa.jpg",
+    "country": "Brazil",
+    "population": 6747815
+  },
+  {
+    "name": "Barcelona",
+    "photo": "https://toposmagazine.com/wp-content/uploads/2022/05/dimitry-anikin-ECkAbFv_Nnc-unsplash-aspect-ratio-16-9.jpg",
+    "country": "Spain",
+    "population": 1620343
+  },
+
+  {
+    "name": "Toronto",
+    "photo": "https://media.blogto.com/articles/20220804-ontario-place.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70",
+    "country": "Canada",
+    "population": 2731571
+  },
+
+  {
+    "name": "Mumbai",
+    "photo": "https://cdn.britannica.com/26/84526-050-45452C37/Gateway-monument-India-entrance-Mumbai-Harbour-coast.jpg",
+    "country": "India",
+    "population": 12442373
+  },
+
+  {
+    "name": "Berlin",
+    "photo": "https://www.alpadia.com/sites/default/files/styles/hero_banner_rh_lg/public/school/featured/berlin-school-hero-1.jpg?itok=z5X83Bxa",
+    "country": "Germany",
+    "population": 3769495
+  },
+
+  {
+    "name": "Dubai",
+    "photo": "https://assets3.thrillist.com/v1/image/3142938/3200x2314/scale;webp=auto;jpeg_quality=60.jpg",
+    "country": "United Arab Emirates",
+    "population": 3137193
+  },
+
+  {
+    "name": "Rome",
+    "photo": "https://media.timeout.com/images/105211673/image.jpg",
+    "country": "Italy",
+    "population": 2870500
+  },
+
+  {
+    "name": "Cape Town",
+    "photo": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/10/2e/1e/cape-town.jpg?w=700&h=-1&s=1",
+    "country": "South Africa",
+    "population": 4336885
+  },
+
+  {
+    "name": "Seoul",
+    "photo": "https://www.holidify.com/images/bgImages/SEOUL.jpg",
+    "country": "South Korea",
+    "population": 9720846
+  }
+
+
+]

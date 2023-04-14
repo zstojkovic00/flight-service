@@ -103,7 +103,7 @@ const Dashboard = () => {
                                             ></Typography>
                                         </Typography>
                                         <Typography variant="h5" gutterBottom>
-                                            {user.role}
+                                            {user.email}
                                         </Typography>
                                     </Box>
                                 </Box>
