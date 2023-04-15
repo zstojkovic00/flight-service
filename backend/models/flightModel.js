@@ -23,7 +23,8 @@ const flightSchema = new Schema({
         required: true,
     },
     class: {
-        enum: ['First Class','Economy', 'Business']
+        type: String,
+        enum: ['First Class', 'Economy', 'Business']
     },
     departureTime: String,
     arrivalTime: String,

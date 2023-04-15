@@ -11,6 +11,8 @@ router.get('/', flightController.getAllFlights);
 router.get('/:id', flightController.getFlight);
 router.post('/search', flightController.searchFlight);
 router.get('/destination/:destination', flightController.belgradeSearchFlight);
+router.post('/search/location', flightController.searchFlightBasedOnUserLocation);
+
 
 router.use(authController.protect);
 router.use(authController.restrictTo('admin'))
