@@ -45,7 +45,7 @@ exports.belgradeSearchFlight = async (req, res, next) => {
 };
 
 
-exports.searchFlightBasedOnUserLocation = catchAsync(async (req, res, next) => {
+exports.searchFlightBasedOnUserLocation = async (req, res, next) => {
     const to = req.body.to;
 
     let location;
@@ -67,7 +67,7 @@ exports.searchFlightBasedOnUserLocation = catchAsync(async (req, res, next) => {
         .exec()
         .then((flights) => res.status(200).json(flights))
         .catch((err) => res.status(500).json("Error: " + err));
-});
+};
 
 
 

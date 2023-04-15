@@ -54,6 +54,19 @@
     "arrivalTime": "06:00 PM",
     "price": 1300
   },
+
+  {
+    "airlines": "Airline Something",
+    "name": "AM001",
+    "from": "Amsterdam",
+    "to": "Paris",
+    "date": "2023-05-05T12:00:00.000Z",
+    "class": "First Class",
+    "departureTime": "12:00 PM",
+    "arrivalTime": "06:00 PM",
+    "price": 1300
+  },
+
   {
     "airlines": "Airline Serbia",
     "name": "AS006",

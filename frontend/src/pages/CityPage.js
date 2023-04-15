@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import {getFlightBySlug} from "../api/apiService";
+import {getFlightsBasedOnLocation} from "../api/apiService";
 import {Box, Typography} from "@mui/material";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 
@@ -12,13 +12,16 @@ const CityPage = () => {
 
 
     useEffect(() => {
-        getFlightBySlug(cityName)
+        const data = { to: cityName };
+        getFlightsBasedOnLocation(data)
             .then((res) => {
                 setFlights(res.data);
                 console.log(res.data);
             })
             .finally(() => setLoading(false));
     }, []);
+
+
 
     return (
         <div>

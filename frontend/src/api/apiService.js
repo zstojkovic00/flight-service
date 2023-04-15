@@ -138,4 +138,13 @@ export const getFlightBySlug = (slug) => {
     })
 }
 
+export const getFlightsBasedOnLocation = (cityName) => {
+    return axios({
+        'method': 'POST',
+        'url': "https://347d-169-150-218-58.ngrok-free.app/api/v1/flights/search/location",
+        'data': cityName,
+
+    })
+}
+
 
