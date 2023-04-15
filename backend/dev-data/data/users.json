@@ -10,6 +10,7 @@
   {
     "_id": "5c8a1d5b0190b214360dc059",
     "name": "Zeljko Stojkovic",
+    "photo": "user-5c8a1d5b0190b214360dc059-1681584375428.jpeg",
     "email": "zeljko@gmail.com",
     "role": "admin",
     "active": true,

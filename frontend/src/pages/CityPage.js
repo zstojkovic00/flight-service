@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import {getFlightsBasedOnLocation} from "../api/apiService";
-import {Box, Typography} from "@mui/material";
+import {bookingFlight, getFlightsBasedOnLocation} from "../api/apiService";
+import {Box, Button, Typography} from "@mui/material";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import FlightSearchForm from "../components/FlightSearchForm";
 
 const CityPage = () => {
     const { cityName } = useParams();
@@ -21,11 +22,37 @@ const CityPage = () => {
             .finally(() => setLoading(false));
     }, []);
 
+    const bookFlight = async (flightId) => {
+        bookingFlight(flightId)
+            .then((res) => {
+                console.log("response", res);
+                if (res.status === 200) {
+                    window.location.href = res.data.session.url;
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const handleBookFlight = (flightId) => {
+        bookFlight(flightId);
+    };
+
 
 
     return (
         <div>
-            <h1>Flights to {cityName}</h1>
+            <Typography
+                variant='h2'
+                gutterBottom
+                sx={{
+                    marginBottom: '1rem',
+                    textAlign: 'center',
+                }}
+            >Flights to {cityName}
+
+            </Typography>
 
             <Box sx={{mt: 5}}>
                 {loading ? (
@@ -66,21 +93,24 @@ const CityPage = () => {
                                         </Box>
                                     </Box>
 
-
-                                    <Box
-                                        sx={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            flexDirection: "column",
-                                        }}
-                                    >
-                                        <Typography variant="h6" gutterBottom>
-                                            {flight.airlines}
+                                        <Typography variant="h5">
+                                            {new Date(flight.date).toLocaleDateString()}
                                         </Typography>
+
+                                        <Box sx={{ display: "flex", alignItems: "center", flexDirection: "column"  }}>
+                                            <Typography variant="h5" gutterBottom>
+                                                {flight.departureTime}
+                                            </Typography>
+                                            <Typography variant="h5" gutterBottom>
+                                                {flight.arrivalTime}
+                                            </Typography>
+                                        </Box>
                                         <Typography variant="h5" gutterBottom>
                                             {flight.price}$
                                         </Typography>
-                                    </Box>
+                                    <Button onClick={() => handleBookFlight(flight._id)} variant="contained" color="primary" type="submit" >
+                                        Book Now!
+                                    </Button>
                                 </Box>
                             ))
                         ) : (

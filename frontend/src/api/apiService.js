@@ -147,4 +147,15 @@ export const getFlightsBasedOnLocation = (cityName) => {
     })
 }
 
+export const updateCurrentUserPassword = (authRequest) => {
+    return axios({
+        'method': 'POST',
+        'url': "http://localhost:5000/api/v1/users/updateMyPassword",
+        'data': authRequest,
+        headers:{
+            'Authorization': 'Bearer ' + getToken(),
+        }
+    })
+}
+
 
