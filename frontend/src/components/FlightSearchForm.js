@@ -105,10 +105,17 @@ const FlightSearchForm = () => {
                             variant="outlined"
                             fullWidth
                         >
-                            {cities.map((city) => (
-                                <MenuItem value={city.to}>{city.to}</MenuItem>
-                            ))}
+                            {cities
+                                .filter((city, index, self) => {
+                                    return index === self.findIndex((c) => c.to === city.to);
+                                })
+                                .map((city) => (
+                                    <MenuItem key={city.to} value={city.to}>
+                                        {city.to}
+                                    </MenuItem>
+                                ))}
                         </Select>
+
                     </Grid>
                     <Grid item xs={12} sm={100}>
                         <TextField
